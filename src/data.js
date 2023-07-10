@@ -4,7 +4,7 @@ export const food =[
         "id": 1,
         "name": "Madina Restaurant",
         "description": "Classic Italian pasta dish with bacon, eggs, cheese, and black pepper.",
-        "price": 10.99,
+        "price": 10,
         "image_url": "https://images.deliveryhero.io/image/fd-pk/LH/t4zn-listing.jpg"
       },
       {

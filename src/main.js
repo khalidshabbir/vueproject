@@ -11,6 +11,7 @@ import Login from './pages/Login.vue'
 library.add(faPhone);
 import { createRouter, createWebHistory } from 'vue-router';
 import Details  from "./pages/Details.vue";
+import Order_Now from "./pages/Buy.vue"
 import Erorpage from "./pages/ErrorPage.vue"
 
 const routes = [
@@ -27,9 +28,13 @@ const routes = [
         path:'/food_details/:id',
         component:Details
         },
+    {
+        path:'/order_page/:id/:quantity',
+        component:Order_Now
+        },
         {
             path: '/:pathMatch(.*)*',
-            component: Erorpage // Assuming you have a component named NotFound for the 404 page
+            component: Erorpage 
         }
 ]
 
