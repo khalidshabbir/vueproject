@@ -1,6 +1,7 @@
 
 import { createApp } from 'vue'
 import './style.css'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import Home from "./pages/Home.vue"
@@ -10,6 +11,7 @@ import Details from "./pages/Details.vue";
 import Order_Now from "./pages/Buy.vue"
 import Erorpage from "./pages/ErrorPage.vue"
 import Recept from "./pages/Recept.vue"
+import Cart from "./pages/Cart.vue"
 
 
 const routes = [
@@ -36,6 +38,10 @@ const routes = [
         component: Recept
     },
     {
+        path: '/addtocart',
+        component: Cart
+    },
+    {
         path: '/:pathMatch(.*)*',
         component: Erorpage
     }
@@ -48,4 +54,6 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
+const pinia = createPinia()
+app.use(pinia)
 app.mount('#app');

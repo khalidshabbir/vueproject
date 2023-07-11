@@ -26,7 +26,7 @@
           <button class="btn btn-dark me-3" @click="count++">+</button>   
         </div>
         <div class="d-flex align-items-center justify-content-center">
-          <button class="btn btn-secondary disabled me-4">Add to Card</button>
+          <button class="btn btn-warning me-4" @click="addToCart">Add to Card</button>
           <router-link :to="`/order_page/${filteredFood.id}/${count}`" class="text-decoration-none"> <button class="btn btn-primary">Buy Now</button></router-link>
         </div>
       </div>
@@ -36,12 +36,35 @@
 
 <script setup>
 import { food } from "../data";
+import { useCartStore } from '../stores/addtoCart'
 import { ref } from "vue";
 let count = ref(1);
 import { useRoute } from "vue-router";
 const route = useRoute();
 const id = route.params.id;
 const filteredFood = food.find((item) => item.id == id);
+
+function generateUniqueId() {
+  const timestamp = new Date().getTime();
+  const randomNum = Math.floor(Math.random() * 10000);
+  const uniqueId = `${timestamp}-${randomNum}`;
+  return uniqueId;
+}
+
+function addToCart(){
+  const cartStore = useCartStore()
+      cartStore.addToCart({
+        id:id,
+        cartId:generateUniqueId(),
+        name:filteredFood.name,
+        price:filteredFood.price,
+        quantity:count,
+        image:filteredFood.image_url,
+       
+      })
+     
+}
+
 </script>
 
 <style lang="scss" scoped>

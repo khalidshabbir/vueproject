@@ -1,9 +1,10 @@
 <script setup >
 import { useRoute } from "vue-router";
+const route = useRoute();
 import { food } from "../data";
 import axios from 'axios';
 import { ref } from "vue"
-const route = useRoute();
+
 const id = route.params.id;
 const quantity = route.params.quantity;
 const item = food.find((item) => item.id == id);
@@ -63,6 +64,16 @@ function onChangestate(value) {
   getCities(value, selectedCountry)
 }
 
+let propsData =
+            {
+              name: item.name,
+              price: item.price,
+              quantity: quantity,
+              total: quantity * item.price,
+              country: selectedCountry,
+              state: selectedStates,
+              city: selectedCity
+            }
 </script>
 
 <template>
@@ -93,16 +104,7 @@ function onChangestate(value) {
         <h5 class="mb-5">Fill the details</h5>
         <form @submit="$router.push({
             path: '/confirm_order',
-            query: propsData =
-            {
-              name: item.name,
-              price: item.price,
-              quantity: quantity,
-              total: quantity * item.price,
-              country: selectedCountry,
-              state: selectedStates,
-              city: selectedCity
-            }
+            query: propsData
 
           })">
           <div class="mb-3">
