@@ -21,9 +21,9 @@
       <div class="col text-center">
         <h1>Select Quantity</h1>
         <div class="mt-5 d-flex align-items-center justify-content-center my-5">
-            <button class="btn btn-dark me-3" @click="count--">-</button>  
+            <button class="btn btn-dark me-3" @click="decrement">-</button>  
           <h4 class="px-5 m-0">{{ count }}</h4>
-          <button class="btn btn-dark me-3" @click="count++">+</button>   
+          <button class="btn btn-dark me-3" @click="increment">+</button>   
         </div>
         <div class="d-flex align-items-center justify-content-center">
           <button class="btn btn-warning me-4" @click="addToCart">Add to Card</button>
@@ -63,6 +63,16 @@ function addToCart(){
        
       })
      
+}
+
+function increment(){
+  count.value++;
+}
+
+function decrement(){
+  if(count.value>1){
+    count.value--;
+  }
 }
 
 </script>

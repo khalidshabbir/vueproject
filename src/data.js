@@ -51,7 +51,7 @@ export const food =[
         "image_url": "https://images.deliveryhero.io/image/fd-pk/LH/cqlg-listing.jpg?width=400&height=292"
       },
        {
-        "id": 1,
+        "id": 8,
         "name": "Madina Restaurant",
         "description": "Classic Italian pasta dish with bacon, eggs, cheese, and black pepper.",
         "price": 10.99,
