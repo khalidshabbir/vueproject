@@ -12,7 +12,6 @@ let countriesData = ref("");
 let statesData = ref("");
 let citesData = ref("");
 // ================================
-const countryname_is = ref("")
 // ===============================
 let selectedCountry = "";
 let selectedStates = ""
@@ -128,7 +127,7 @@ let propsData =
           </div>
           <!-- =========================================== -->
           <div class="mb-3">
-            <label for="selectCountry" class="form-label">States</label>
+            <label for="selectSate" class="form-label">States</label>
             <select class="form-select shadow-none" required placeholder="Please Select your Country"
               v-model="selectedStates" @change="onChangestate(selectedStates)">
               <option disabled selected>Select your State</option>

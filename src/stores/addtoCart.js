@@ -11,18 +11,24 @@ export const useCartStore = defineStore('cart', {
 
     cartItems: (state) => state.items,
     cartTotal: (state) => state.items,
+
+    getItemQuantityById: (state) => (id) => {
+      const item = state.items.find((i) => i.id == id);
+      return item ? item.quantity : 1;
+    }
+   
   },
   actions: {
    
       addToCart(item) {
         // console.log(this.items)
-        const existingItem = this.items.find((i) => i.id === item.id);
+        const existingItem = this.items.find((i) => i.id == item.id);
     
         if (existingItem) {
           const q=existingItem.quantity;
           const itemq=item.quantity.value;
           
-          existingItem.quantity =(parseInt(q)+itemq);
+          existingItem.quantity =itemq;
         } else {
           // Item does not exist, add it to the cart
           this.items.push(item);
